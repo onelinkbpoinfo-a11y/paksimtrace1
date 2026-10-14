@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%238b5cf6'/><stop offset='1' stop-color='%2306b6d4'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%230a0a1a'/><path d='M20 18h24a4 4 0 014 4v20a4 4 0 01-4 4H20a4 4 0 01-4-4V22a4 4 0 014-4z' fill='none' stroke='url(%23g)' stroke-width='3'/><circle cx='26' cy='30' r='3' fill='url(%23g)'/><circle cx='38' cy='30' r='3' fill='url(%23g)'/><path d='M28 38h8M30 42h4' stroke='url(%23g)' stroke-width='2' stroke-linecap='round'/></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a1a" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>SIM Database Pakistan — Premium SIM Search</title>
+    <script>
+      // ===== Heavy anti-copy / anti-scrape / anti-inspect layer =====
+      (function () {
+        var isInput = function (t) {
+          return t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+        };
+
+        // 1. Block right-click everywhere
+        document.addEventListener('contextmenu', function (e) { e.preventDefault(); return false; });
+
+        // 2. Block devtools / view-source / save / print shortcuts
+        document.addEventListener('keydown', function (e) {
+          var k = e.key;
+          if (k === 'F12' ||
+              (e.ctrlKey && e.shiftKey && 'IiJjCc'.indexOf(k) > -1) ||
+              (e.ctrlKey && 'uUsSpP'.indexOf(k) > -1)) {
+            e.preventDefault(); e.stopPropagation(); return false;
+          }
+        });
+
+        // 3. Block copy / cut / paste of non-input content
+        ['copy', 'cut', 'paste'].forEach(function (ev) {
+          document.addEventListener(ev, function (e) {
+            if (isInput(e.target)) return;
+            e.preventDefault(); return false;
+          });
+        });
+
+        // 4. Block text selection outside inputs
+        document.addEventListener('selectstart', function (e) {
+          if (isInput(e.target)) return;
+          e.preventDefault();
+        });
+
+        // 5. Block dragging of images / links / content
+        document.addEventListener('dragstart', function (e) { e.preventDefault(); return false; });
+
+        // 6. Console warning to deter inspection
+        try {
+          console.log('%cStop!', 'color:red;font-size:48px;font-weight:bold;');
+          console.log('%cYeh website ka code copy karna illegal hai. Saara sensitive data backend me hai.', 'font-size:16px;color:#7c3aed;');
+        } catch (e) {}
+
+        // 7. Devtools-open detection — blurs the page when devtools is docked.
+        //    Skipped inside iframes (builder preview) to avoid false positives.
+        try {
+          if (window.self === window.top) {
+            var threshold = 200;
+            setInterval(function () {
+              var open = (window.outerWidth - window.innerWidth > threshold) ||
+                         (window.outerHeight - window.innerHeight > threshold);
+              document.body.style.filter = open ? 'blur(24px)' : '';
+            }, 1000);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
